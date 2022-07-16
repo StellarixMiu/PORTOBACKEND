@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
 import userRoutes from './src/routes/usersRoute.js'
 import authRoutes from './src/routes/authRoute.js'
@@ -14,6 +15,7 @@ const URI = process.env.DB_URI
 
 app.use(cookieParser())
 app.use(express.json())
+app.use(cors())
 app.use(express.urlencoded({extended: true}))
 
 const connect = () => {
