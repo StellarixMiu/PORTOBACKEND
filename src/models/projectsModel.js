@@ -3,6 +3,11 @@ import mongoose from 'mongoose'
 const projectsModel = new mongoose.Schema(
     {
         img: {
+            data: Buffer,
+            contentType: String,
+            required: true
+        },
+        slug: {
             type: String,
             required: true
         },
@@ -11,6 +16,14 @@ const projectsModel = new mongoose.Schema(
             unique: true
         },
         desc: {
+            type: String,
+            required: true
+        },
+        preview: {
+            type: String,
+            required: true
+        },
+        github: {
             type: String,
             required: true
         },

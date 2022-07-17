@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import multer from 'multer'
 
 import userRoutes from './src/routes/usersRoute.js'
 import authRoutes from './src/routes/authRoute.js'
@@ -26,6 +27,15 @@ const connect = () => {
     throw err
   })
 }
+
+const imgStorages = multer.diskStorage({
+  destination: (req ,file ,cb) => {
+    cb(null, 'uploads')
+  },
+  filename: (req ,file ,cb) => {
+    cb(null, file.originalname)
+  }
+})
 
 app.get('/', (req, res) => {
   res.status(200).send('Client Ready')
