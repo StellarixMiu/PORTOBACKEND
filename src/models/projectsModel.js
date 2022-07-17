@@ -4,8 +4,7 @@ const projectsModel = new mongoose.Schema(
     {
         img: {
             data: Buffer,
-            contentType: String,
-            required: true
+            contentType: String
         },
         slug: {
             type: String,
