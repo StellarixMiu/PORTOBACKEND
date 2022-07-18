@@ -30,16 +30,14 @@ export const signinUser = async (req, res, next) => {
 
         const {password, ...userData} = user._doc
 
-        const resSend = []
-
-        resSend.push({
+        const data = {
             userData,
             token
-        })
+        }
 
         res.cookie("access_token", token, {
             httpOnly: true
-        }).status(200).json(resSend)
+        }).status(200).json(data)
     }catch(err) {
         next(err)
     }
