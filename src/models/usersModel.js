@@ -2,6 +2,10 @@ import mongoose from 'mongoose'
 
 const usersModel = new mongoose.Schema(
     {
+        refresh_token: {
+            type: String,
+            unique: true
+        },
         username: {
             type: String,
             required: true,

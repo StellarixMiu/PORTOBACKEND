@@ -12,6 +12,7 @@ import contactRoutes from './src/routes/contactsRoute.js'
 
 dotenv.config()
 const app = express()
+
 const URI = process.env.DB_URI
 
 const corsConfig = {

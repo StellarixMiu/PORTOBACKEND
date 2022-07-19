@@ -21,3 +21,14 @@ export const updateUser = async (req, res, next) => {
         return next(createError(403, "Wrong credentials!"))
     }
 }
+
+//get User by id
+export const getUser = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.user.id)
+        const {password, refresh_token, isAdmin, __v,  ...dataUser } = user._doc
+        res.status(200).json(dataUser)
+    } catch (err) {
+        next(err)
+    }
+}
